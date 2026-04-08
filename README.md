@@ -1,6 +1,7 @@
 # amikomeventhub-3314
 ** Rezza Alfat Harya Sambada **
 ** 24.12.3314 **
+** Live Demo : ** https://amikomeventhub-3314-main-qacpwg.free.laravel.cloud
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
