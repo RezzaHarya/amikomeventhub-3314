@@ -12,9 +12,9 @@
         </div>
         <div class="md:col-span-2 space-y-4">
             <p class="text-sm text-gray-400 font-medium">Data Diri Mahasiswa</p>
-            <h2 class="text-3xl font-bold text-gray-950">Nama Anda Di Sini</h2>
+            <h2 class="text-3xl font-bold text-gray-950">Rezza Alfat Harya sambada</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600">
-                <p>NIM: <span class="font-medium text-gray-800">[NIM]</span></p>
+                <p>NIM: <span class="font-medium text-gray-800">24.12.3314</span></p>
                 <p>Prodi: <span class="font-medium text-gray-800">S1 Sistem Informasi</span></p>
                 <p>Fakultas: <span class="font-medium text-gray-800">Ilmu Komputer</span></p>
                 <p>Status: <span class="inline-block px-2.5 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">Aktif</span></p>
