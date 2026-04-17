@@ -21,3 +21,13 @@ return view('katalog');
 Route::get('/bantuan', function () {
 return view('bantuan');
 });
+
+//admin dashboard
+Route::get('/dashboard', function () {
+return view('admin.dashboard');
+});
+
+//admin event
+Route::get('/event', function () {
+return view('admin.event');
+});
