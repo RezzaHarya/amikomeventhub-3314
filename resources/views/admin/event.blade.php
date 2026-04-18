@@ -1,17 +1,5 @@
-@extends('layout.layout-admin')
+@extends('layouts.admin')
 @section('content')
-
- <main class="flex-1 p-10 overflow-y-auto">
-        <header class="flex justify-between items-center mb-10">
-            <div>
-                <h1 class="text-3xl font-black">Kelola Event</h1>
-                <p class="text-slate-500 font-medium">Buat dan atur acara seru Anda di sini.</p>
-            </div>
-            <button
-                class="px-6 py-3 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-100 hover:bg-indigo-700 active:scale-95 transition">
-                + Tambah Event Baru
-            </button>
-        </header>
 
         <div class="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
             <div class="px-8 py-6 bg-slate-50/50 border-b flex gap-4">
@@ -39,7 +27,7 @@
                         <tr class="hover:bg-slate-50/50 transition">
                             <td class="px-8 py-6 font-bold text-slate-400">1</td>
                             <td class="px-8 py-6">
-                                <img src="assets/concert.png" class="w-16 h-20 rounded-xl object-cover shadow-sm">
+                                <img src="{{ asset('assets/concert.png') }}" class="w-16 h-20 rounded-xl object-cover shadow-sm">
                             </td>
                             <td class="px-8 py-6">
                                 <p class="font-black text-slate-800">Jazz Night 2024</p>
@@ -73,7 +61,7 @@
                         <tr class="hover:bg-slate-50/50 transition">
                             <td class="px-8 py-6 font-bold text-slate-400">2</td>
                             <td class="px-8 py-6">
-                                <img src="assets/workshop.png" class="w-16 h-20 rounded-xl object-cover shadow-sm">
+                                <img src="{{ asset('assets/workshop.png') }}" class="w-16 h-20 rounded-xl object-cover shadow-sm">
                             </td>
                             <td class="px-8 py-6">
                                 <p class="font-black text-slate-800">AI & Future Workshop</p>
@@ -108,6 +96,5 @@
                 </table>
             </div>
         </div>
-    </main>
 
     @endsection
