@@ -12,9 +12,13 @@ use App\Http\Controllers\Admin\PartnerController;
 
 // Rute User Area (Tetap dibiarkan terbuka untuk pengunjung)
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/event/1', [EventController::class, 'show'])->name('events.show');
-Route::get('/checkout', [EventController::class, 'checkout'])->name('checkout');
+Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show');
 Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
+
+Route::get('/checkout/{event}',   [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/{event}',  [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('/payment/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'payment'])->name('checkout.payment');
+Route::get('/success/{order_id}', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('checkout.success');
 
 // Lempar sembarang akses /login menuju ke login admin [cite: 1691-1693]
 Route::get('/login', function () {
@@ -50,8 +54,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         Route::get('transactions', [\App\Http\Controllers\Admin\TransactionController::class, 'index'])->name('transactions.index');
 
         //simpan transaksi
-        Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
-        Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
-
+       
     });
 });

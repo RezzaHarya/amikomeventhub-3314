@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventController extends Controller
 {
     // Method untuk menampilkan halaman detail event
-    public function show()
+    public function show($id)
     {
-        return view('event-detail'); 
+        $event = Event::findOrFail($id); 
+
+        // 2. Tampilkan view 'event-detail' dan bawa data event tersebut
+        return view('event-detail', compact('event'));
     }
 
     // Method untuk menampilkan halaman checkout

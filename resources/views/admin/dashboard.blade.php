@@ -63,44 +63,37 @@
                             <th class="px-8 py-4">Total</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y border-t">
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="px-8 py-6">
-                                <p class="font-bold uppercase tracking-wide text-sm">Donni Prabowo</p>
-                                <p class="text-xs text-slate-400">donni@example.com</p>
-                            </td>
-                            <td class="px-8 py-6 font-medium text-slate-600">Jazz Night 2024</td>
-                            <td class="px-8 py-6">
-                                <span
-                                    class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-xs font-bold uppercase">Success</span>
-                            </td>
-                            <td class="px-8 py-6 font-black text-indigo-600">Rp 155.000</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="px-8 py-6">
-                                <p class="font-bold uppercase tracking-wide text-sm">Maya Sari</p>
-                                <p class="text-xs text-slate-400">maya@example.com</p>
-                            </td>
-                            <td class="px-8 py-6 font-medium text-slate-600">AI & Future Workshop</td>
-                            <td class="px-8 py-6">
-                                <span
-                                    class="px-3 py-1 bg-orange-100 text-orange-700 rounded-lg text-xs font-bold uppercase">Pending</span>
-                            </td>
-                            <td class="px-8 py-6 font-black text-indigo-600">Rp 55.000</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="px-8 py-6">
-                                <p class="font-bold uppercase tracking-wide text-sm">Budi Santoso</p>
-                                <p class="text-xs text-slate-400">budi@example.com</p>
-                            </td>
-                            <td class="px-8 py-6 font-medium text-slate-600">Hackathon 2024</td>
-                            <td class="px-8 py-6">
-                                <span
-                                    class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold uppercase">Free</span>
-                            </td>
-                            <td class="px-8 py-6 font-black text-indigo-600">Rp 0</td>
-                        </tr>
-                    </tbody>
+                        <tbody>
+                            @foreach($recent_transactions as $transaction)
+                            <tr class="border-b border-slate-50 hover:bg-slate-50/50 transition">
+                                
+                                {{-- Kolom Pembeli --}}
+                                <td class="px-6 py-4">
+                                    <p class="font-bold text-slate-700">{{ strtoupper($transaction->customer_name) }}</p>
+                                    <p class="text-xs text-slate-500">{{ strtolower($transaction->customer_email) }}</p>
+                                </td>
+
+                                {{-- Kolom Event --}}
+                                <td class="px-6 py-4 text-slate-600">
+                                    {{ $transaction->event->title ?? 'Event Tidak Ditemukan' }}
+                                </td>
+
+                                {{-- Kolom Status --}}
+                                <td class="px-6 py-4">
+                                    <span class="px-3 py-1 text-xs font-bold rounded-full 
+                                        {{ $transaction->status == 'Pending' ? 'bg-orange-100 text-orange-600' : 'bg-green-100 text-green-600' }}">
+                                        {{ strtoupper($transaction->status) }}
+                                    </span>
+                                </td>
+
+                                {{-- Kolom Total --}}
+                                <td class="px-6 py-4 font-bold text-indigo-600">
+                                    Rp {{ number_format($transaction->total_price, 0, ',', '.') }}
+                                </td>
+
+                            </tr>
+                            @endforeach
+                        </tbody>
                 </table>
             </div>
         </div>
